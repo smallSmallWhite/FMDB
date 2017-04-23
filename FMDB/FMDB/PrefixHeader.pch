@@ -1,0 +1,168 @@
+//
+//  PrefixHeader.pch
+//  FourServices
+//
+//  Created by admin on 2017/2/13.
+//  Copyright © 2017年 admin. All rights reserved.
+//
+
+///设置屏幕宽高
+#define screenW [UIScreen mainScreen].bounds.size.width
+#define screenH [UIScreen mainScreen].bounds.size.height
+
+///设置颜色
+#define UIColorFromRBG(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define UIColorFromRgb(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define ButtonTitleColor  [UIColor colorWithRed:255/255.0 green:153/255.0 blue:0/255.0 alpha:1]
+#define lineBackgroundColor [UIColor colorWithRed:202/255.0 green:202/255.0 blue:202/255.0 alpha:1]
+
+///设置图片
+#define UI_IMAGE(fileName) [UIImage imageNamed:fileName]
+#define UI_IMAGE_JPG(fileName) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"jpg"]]
+
+/// 根据屏幕分辨率判断设备，是则返回YES，不是返回NO
+#define isiPhone5or5sor5c ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isiPhone6or6s ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isiPhone6plusor6splus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+///网易云信
+#define APPKEY  @"8dd341caf9df023a2a9a0e3e4bbb2f48"
+///测试环境证书名称 iosFourServices  上线环境证书名称  iosushFourServices
+#define certifeNames @"iosFourServices"
+
+
+///极光推送
+#define JPushAppKey  @"9595e6d68811d7c4380558b9"
+#define systemTime  @"2016-08-21"
+
+///存储数组数据的路径
+///品牌路径
+#define brandPath  @"brandInfo.plist"
+///4S店路径
+#define storePath  @"storeInfo.plist"
+///保险公司路径
+#define companyPath @"companyInfo.plist"
+///颜色路径
+#define colorpath  @"colorInfo.plist"
+
+//*******************接口**************************
+#define loadMsg @"加载中..."
+#define errorMsg @"数据请求出错\n请稍后再试"
+#define appkey @"1"
+///系统版本
+#define os_version [[UIDevice currentDevice] systemVersion]
+///设备uuid号
+#define device_id [[UIDevice currentDevice]identifierForVendor].UUIDString
+///接口版本号
+#define protocal_version @"1.0.1"
+///app版本
+#define app_version @"1"
+///系统 ios "1" android "2"
+#define os_system @"1"
+///硬件品牌  苹果
+#define device_brand @"苹果"
+///基本的请求网址
+//#define API_URL @"http://192.168.0.27:9090/services/"
+//内网
+#define API_URL  @"http://192.168.0.151:8888/services/"
+//外网
+//#define API_URL @"http://115.159.104.25:8888/services/"
+//外网
+//#define HEADER_URL  @"http://115.159.104.25:8888"
+//内网
+#define HEADER_URL  @"http://192.168.0.151:8888"
+#pragma mark  首页相关
+///汽车资讯详情
+#define QueryOneVehicleInformation   @"QueryOneVehicleInformation"
+///汽车资讯列表
+#define QueryMoreVehicleInformation  @"QueryMoreVehicleInformation"
+///专属服务列表
+#define QueryMorePackageItem @"QueryMorePackageItem"
+///专属服务详情
+#define QueryOnePackageItem  @"QueryOnePackageItem"
+///他想买车
+#define AddPurchaseInfo @"AddPurchaseInfo"
+///我的消息
+#define QueryMessageRecords @"QueryMessageRecords"
+///视频列表
+#define QueryMoreVideo  @"QueryMoreVideo"
+///视频点赞
+#define PraiseVideo  @"PraiseVideo"
+///修改消息状态
+#define updateMessageStatus @"UpdateMessageStatus"
+
+
+#pragma mark 个人中心
+///帮助与反馈
+#define AddUserAdvice  @"AddUserAdvice"
+///完善车牌信息
+#define UpdateLicensePlate  @"UpdateLicensePlate"
+///退出登录
+#define UserLogout  @"UserLogout"
+///修改个人基本信息
+#define UpdateUserBaseInfo  @"UpdateUserBaseInfo"
+///修改车辆信息
+#define UpdateUserVehicle  @"UpdateUserVehicle"
+///修改设备信息
+#define UpdateVehicleOBD @"UpdateVehicleOBD"
+///修改保险公司信息
+#define UpdateInsuranceCompany @"UpdateInsuranceCompany"
+///解除车辆绑定
+#define UnbindVehicle @"UnbindVehicle"
+///修改4S店信息
+#define ApplyChangeUserStore  @"ApplyChangeUserStore"
+///检查更新
+#define CheckAppUpdate  @"CheckAppUpdate"
+///修改密码
+#define UpdatePassword  @"UpdatePassword"
+
+#pragma mark  我的爱车相关
+///服务评价
+#define UserScore  @"UserScore"
+///故障列表
+#define QueryMoreVehicleTroubleInfo  @"QueryMoreVehicleTroubleInfo"
+///预约管理展示数据
+#define QueryOrderRelatedInfo @"QueryOrderRelatedInfo"
+///确认预约
+#define AddOrderInfo  @"AddOrderInfo"
+///服务记录
+#define QueryServiceRecords  @"QueryServiceRecords"
+///服务记录详情
+#define QueryOneServiceRecords  @"QueryOneServiceRecords"
+//获取车辆里程数
+#define QueryCurrentMileage  @"QueryCurrentMileage"
+//获取obd设备的实时数据
+#define QueryRealTimeData @"QueryRealTimeData"
+//获取车辆GPS数据
+#define QueryGPSData  @"QueryGPSData"
+//查询车辆GPS历史数据
+#define QueryGPSHistoryData  @"QueryGPSHistoryData"
+//查询当地油价
+#define QueryOilPrice @"QueryOilPrice"
+//发送服务报告
+#define UpdateVehicleTroubleStatus @"UpdateVehicleTroubleStatus"
+#pragma mark  我的专属
+///我的专属展示页面
+#define MySpace  @"MySpace"
+
+
+
+
+
+
+
+
+
+
+
